@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { fetchPayloadData } from "../services/api";
 
-export function Header() {
+export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [links, setLinks] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);

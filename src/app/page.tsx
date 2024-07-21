@@ -5,8 +5,9 @@ import { fetchPayloadData } from "../services/api";
 
 import "./styles/globals.css";
 
-import { Header } from "@/components/Header";
+import Header from "@/components/Header";
 import { ChevronRight } from "lucide-react";
+import Footer from "@/components/Footer";
 
 export default function Home() {
   const [heroContent, setHeroContent] = useState<any>(null);
@@ -208,7 +209,7 @@ export default function Home() {
           <div></div>
         </section>
       </main>
-      <footer>Footer</footer>
+      <Footer />
     </div>
   );
 }
