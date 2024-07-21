@@ -9,7 +9,8 @@ import { Header } from "@/components/Header";
 
 export default function Home() {
   const [heroContent, setHeroContent] = useState<any>(null);
-  const [sectionsContent, setSectionsContent] = useState<any[]>([]);
+  const [section2Content, setSection2Content] = useState<any[]>([]);
+  //const [section3Content, setSection3Content] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
  
@@ -57,7 +58,9 @@ export default function Home() {
         )?.value.blocks;
 
         if (sections) {
-          const parsedSections = sections.map((section: any) => {
+          const section2Data = sections.filter(
+            (section: any) => section.contentAlias === "contentImage"
+          ).map((section: any) => {
             const overline = section.contentProperties.find(
               (prop: any) => prop.alias === "overline"
             )?.value.value || "";
@@ -77,8 +80,29 @@ export default function Home() {
             return { overline, title, description, imageUrl, altText };
           });
 
-          setSectionsContent(parsedSections);
+          // const section3Data = sections.filter(
+          //   (section: any) => section.contentAlias === "widgetCapture"
+          // ).map((section: any) => {
+          //   const overline = section.contentProperties.find(
+          //     (prop: any) => prop.alias === "overline"
+          //   )?.value.value || "";
+          //   const title = section.contentProperties.find(
+          //     (prop: any) => prop.alias === "title"
+          //   )?.value.value || "";
+          //   const description = section.contentProperties.find(
+          //     (prop: any) => prop.alias === "description"
+          //   )?.value.sourceValue || "";
+          //   const socialLoginOptions = section.contentProperties.find(
+          //     (prop: any) => prop.alias === "socialLoginOptions"
+          //   )?.value.value || [];
+
+          //   return { overline, title, description, socialLoginOptions };
+          // });
+
+          setSection2Content(section2Data);
+          //setSection3Content(section3Data);
         }
+
       } catch (error) {
         setError("Failed to load data");
         console.error("Error loading payload:", error);
@@ -110,11 +134,12 @@ export default function Home() {
           </div>
         </section>
         <section className="section-2">
-        {sectionsContent.map((section, index) => (
+        {section2Content.map((section, index) => (
             <div key={index}>
               <h3>{section.overline}</h3>
               <h2>{section.title}</h2>
               <p>{section.description}</p>
+              <img src="/assets/icons/plus-icon.svg" alt="Black plus icon" />
               <img src={section.imageUrl} alt={section.altText} />
             </div>
           ))}
