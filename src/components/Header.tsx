@@ -1,14 +1,39 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { fetchPayloadData } from "../services/api";
 
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [links, setLinks] = useState<any[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
   };
+
+  useEffect(() => {
+    const loadData = async () => {
+      try {
+        const data = await fetchPayloadData();
+
+        const headerLinks = data.data.navigation.nodes
+          .flatMap((node: any) => node.properties)
+          .find((property: any) => property.value.alias === "headers")
+          ?.value.blocks.flatMap((block: any) => block.contentProperties)
+          .find((content: any) => content.value.alias === "navigation")
+          ?.value.links;
+
+        setLinks(headerLinks || []);
+      } catch (error) {
+        setError("Failed to load data");
+        console.error("Error loading payload:", error);
+      }
+    };
+
+    loadData();
+  }, []);
 
   return (
     <header>
@@ -26,30 +51,18 @@ export function Header() {
         >
           {menuOpen && (
             <ul className="flex flex-col items-center justify-center h-full space-y-8 md:flex-row md:space-y-0 md:space-x-6">
-              <li>
-                <a href="#home" className="text-lg">
-                  Home
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-lg">
-                  About
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-lg">
-                  Services
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-lg">
-                  Contact
-                </a>
-              </li>
+              {links.map((link: any) => (
+                <li key={link.url}>
+                  <a href={link.url} className="text-lg">
+                    {link.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           )}
         </nav>
       </div>
+      {error && <div className="text-red-500">{error}</div>}
     </header>
   );
 }
