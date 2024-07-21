@@ -9,19 +9,17 @@ import { Header } from "@/components/Header";
 
 export default function Home() {
   const [heroContent, setHeroContent] = useState<any>(null);
+  const [sectionsContent, setSectionsContent] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
 
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert(`Email enviado: ${email}`);
-  };
+ 
 
   useEffect(() => {
     const loadData = async () => {
       try {
         const data = await fetchPayloadData();
+
+        // hero data extraction
         const heroSection = data.data.page.properties
           .find((property: any) => property.value.alias === "hero")
           ?.value.blocks.find(
@@ -52,6 +50,35 @@ export default function Home() {
 
           setHeroContent({ overline, title, description, imageUrl, altText });
         }
+
+        // sections data extraction
+        const sections = data.data.page.properties.find(
+          (property: any) => property.value.alias === "sections"
+        )?.value.blocks;
+
+        if (sections) {
+          const parsedSections = sections.map((section: any) => {
+            const overline = section.contentProperties.find(
+              (prop: any) => prop.alias === "overline"
+            )?.value.value || "";
+            const title = section.contentProperties.find(
+              (prop: any) => prop.alias === "title"
+            )?.value.value || "";
+            const description = section.contentProperties.find(
+              (prop: any) => prop.alias === "description"
+            )?.value.sourceValue || "";
+            const imageUrl = section.contentProperties.find(
+              (prop: any) => prop.alias === "image"
+            )?.value.mediaItems[0].url || "";
+            const altText = section.contentProperties.find(
+              (prop: any) => prop.alias === "altText"
+            )?.value.value || "";
+
+            return { overline, title, description, imageUrl, altText };
+          });
+
+          setSectionsContent(parsedSections);
+        }
       } catch (error) {
         setError("Failed to load data");
         console.error("Error loading payload:", error);
@@ -74,7 +101,7 @@ export default function Home() {
       <Header />
       <main>
         <section className="hero">
-        <img src={heroContent.imageUrl} alt={heroContent.altText} />
+          <img src={heroContent.imageUrl} alt={heroContent.altText} />
           <div>
             <h3>{heroContent.overline}</h3>
             <h1>{heroContent.title}</h1>
@@ -83,10 +110,14 @@ export default function Home() {
           </div>
         </section>
         <section className="section-2">
-          <h3></h3>
-          <h2></h2>
-          <p></p>
-          <img src="" alt="" />
+        {sectionsContent.map((section, index) => (
+            <div key={index}>
+              <h3>{section.overline}</h3>
+              <h2>{section.title}</h2>
+              <p>{section.description}</p>
+              <img src={section.imageUrl} alt={section.altText} />
+            </div>
+          ))}
         </section>
         <section className="section-3">
           <div>
@@ -104,7 +135,8 @@ export default function Home() {
             </div>
             <div>
               <p>Próximo</p>
-              <img src="" alt=""/>
+              <img src="" alt="" />
+              
             </div>
           </div>
         </section>
