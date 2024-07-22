@@ -1,8 +1,14 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import FooterColumn from "./FooterColumn";
 import { fetchPayloadData } from "../services/api";
+
+import Image from "next/image";
+import instagramIcon from "../../public/assets/icons/instagram.svg";
+import facebookIcon from "../../public/assets/icons/fb-black.svg";
+import twitterIcon from "../../public/assets/icons/twitter.svg";
+
+import FooterColumn from "./FooterColumn";
 
 export default function Footer() {
   const [footerContent, setFooterContent] = useState<
@@ -64,16 +70,26 @@ export default function Footer() {
   }
 
   return (
-    <footer>
-      <div className="container mx-auto flex items-center justify-between p-4">
-        <div className="text-lg font-bold">LOREM IPSUM</div>
-        <div>
-          <img src="/assets/icons/instagram.svg" alt="Instagram icon" />
-          <img src="/assets/icons/fb-black.svg" alt="Facebook icon" />
-          <img src="/assets/icons/twitter.svg" alt="X icon" />
+    <footer className="p-4">
+      <div className="container mx-auto flex flex-col gap-8 pt-6">
+        <h2>LOREM IPSUM</h2>
+        <div className="flex gap-6">
+          <Image
+            src={instagramIcon}
+            alt="Instagram icon"
+            width={24}
+            height={24}
+          />
+          <Image
+            src={facebookIcon}
+            alt="Facebook icon"
+            width={24}
+            height={24}
+          />
+          <Image src={twitterIcon} alt="X icon" width={24} height={24} />
         </div>
       </div>
-      <div className="footer-columns">
+      <div className="py-8 flex flex-wrap gap-8">
         {footerContent.map((section, index) => (
           <FooterColumn
             key={index}
@@ -81,10 +97,6 @@ export default function Footer() {
             links={section.links}
           />
         ))}
-      </div>
-      <div>
-        <p>SAC: 0800 888 1010</p>
-        <p>(Segunda à sexta-feira, das 09h às 19h)</p>
       </div>
     </footer>
   );

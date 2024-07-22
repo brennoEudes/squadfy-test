@@ -32,7 +32,10 @@ h3 {
 }
 
 h4 {
-  @apply text-lg text-secondary leading-[20px];
+  @apply text-xl text-tertiary leading-[20px];
 }
 
+h5 {
+  @apply text-lg text-secondary leading-[20px];
+}
 

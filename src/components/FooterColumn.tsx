@@ -7,14 +7,13 @@ export default function FooterColumn({
   title: string;
   links: { name: string; url: string }[];
 }) {
-
   return (
-    <div className="footer-column">
-      <h3>{title}</h3>
-      <ul>
+    <div className="footer-column flex flex-col gap-4">
+      <h4>{title}</h4>
+      <ul className="">
         {links.map((link, index) => (
-          <li key={index}>
-            <a href={link.url}>{link.name}</a>
+          <li className="mb-4" key={index}>
+            <a className="underline underline-offset-4 decoration-quaternary hover:text-blue-700" href={link.url}>{link.name}</a>
           </li>
         ))}
       </ul>

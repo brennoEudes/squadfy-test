@@ -158,7 +158,7 @@ export default function Home() {
             <div className="bg-white p-4 gap-1">
               <h3>{heroContent.overline}</h3>
               <h1>{heroContent.title}</h1>
-              <h4>{heroContent.description}</h4>
+              <h5>{heroContent.description}</h5>
               <div className="flex justify-end items-end">
                 <p className="text-secondary text-4xl font-bold">+</p>
               </div>
@@ -261,8 +261,6 @@ export default function Home() {
               </div>
             </div>
           ))}
-
-          <div></div>
         </section>
       </main>
       <Footer />
