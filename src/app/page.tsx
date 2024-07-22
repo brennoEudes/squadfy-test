@@ -219,6 +219,7 @@ export default function Home() {
                             ? googleIcon
                             : null
                         }
+                        iconAlt={`${option} icon`}
                       >
                         {option}
                       </Button>

@@ -74,19 +74,9 @@ export default function Footer() {
       <div className="container mx-auto flex flex-col gap-8 pt-6">
         <h2>LOREM IPSUM</h2>
         <div className="flex gap-6">
-          <Image
-            src={instagramIcon}
-            alt="Instagram icon"
-            width={24}
-            height={24}
-          />
-          <Image
-            src={facebookIcon}
-            alt="Facebook icon"
-            width={24}
-            height={24}
-          />
-          <Image src={twitterIcon} alt="X icon" width={24} height={24} />
+          <Image src={instagramIcon} alt="Instagram icon" />
+          <Image src={facebookIcon} alt="Facebook icon" />
+          <Image src={twitterIcon} alt="X icon" />
         </div>
       </div>
       <div className="py-8 flex flex-wrap gap-8">
