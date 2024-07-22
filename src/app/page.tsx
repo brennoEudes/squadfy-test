@@ -3,11 +3,13 @@
 import { useState, useEffect } from "react";
 import { fetchPayloadData } from "../services/api";
 
-import Image from "next/image";
 import "./styles/globals.css";
+import facebookWhiteIcon from "../../public/assets/icons/fb-white.svg";
+import googleIcon from "../../public/assets/icons/google.svg";
 
 import Header from "@/components/Header";
 import { ChevronRight } from "lucide-react";
+import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 
 export default function Home() {
@@ -163,6 +165,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="section-2 g-1">
           {section2Content.map((section, index) => (
             <div key={index}>
@@ -174,29 +177,62 @@ export default function Home() {
                   <p className="text-secondary text-4xl font-bold">+</p>
                 </div>
               </div>
-              <img className="mb-4" src={section.imageUrl} alt={section.altText} />
+              <img
+                className="mb-[48px]"
+                src={section.imageUrl}
+                alt={section.altText}
+              />
             </div>
           ))}
         </section>
-        <section className="section-3">
+
+        <section className="section-3 p-4">
           {section3Content.map((section, index) => (
-            <div key={index}>
-              <h3>{section.overline}</h3>
-              <h2>{section.title}</h2>
-              <p>{section.description}</p>
-
+            <div className="space-y-4" key={index}>
               <div>
-                <p>Cadastre-se com a sua rede social:</p>
-                {section.socialLoginOptions.map((option: string, i: number) => (
-                  <button key={i}>{option}</button>
-                ))}
-                <div>
-                  <p>OU</p>
-                </div>
+                <h3>{section.overline}</h3>
+                <h2>{section.title}</h2>
+                <p>{section.description}</p>
+              </div>
 
+              <div className="space-y-4">
+                <p>Cadastre-se com a sua rede social:</p>
+                <div className="social-buttons flex flex-col gap-4">
+                  {section.socialLoginOptions.map(
+                    (option: string, i: number) => (
+                      <Button
+                        key={i}
+                        textColor={
+                          option === "Facebook" ? "text-white" : "text-primary"
+                        }
+                        bgColor={
+                          option === "Facebook" ? "bg-blue-600" : "bg-white"
+                        }
+                        className={`flex items-center justify-center hover:opacity-75 ${
+                          option === "Google" ? " border border-quaternary" : ""
+                        }`}
+                        onClick={() => console.log(`Clicked on ${option}`)}
+                        icon={
+                          option === "Facebook"
+                            ? facebookWhiteIcon
+                            : option === "Google"
+                            ? googleIcon
+                            : null
+                        }
+                      >
+                        {option}
+                      </Button>
+                    )
+                  )}
+                </div>
+                <div className="flex items-center justify-center my-2">
+                  <div className="flex-grow border-t border-dotted border-quaternary"></div>
+                  <span className="mx-4 text-gray-500">OU</span>
+                  <div className="flex-grow border-t border-dotted border-quaternary"></div>
+                </div>
                 <form
                   onSubmit={handleSubmit}
-                  className="bg-white p-6 rounded-lg shadow-md w-full max-w-md"
+                  className="flex flex-col gap-4 bg-white w-full max-w-md"
                 >
                   <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 mb-2">
@@ -209,16 +245,18 @@ export default function Home() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       required
-                      className="border border-gray-300 rounded-lg py-2 px-4 w-full"
+                      className="border border-gray-300 p-3 w-full placeholder-quinary"
+                      placeholder="seu@email.com"
                     />
                   </div>
-                  <button
+
+                  <Button
                     type="submit"
-                    className="bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600"
+                    className="py-3 flex items-center justify-center"
                   >
                     Próximo
                     <ChevronRight className="ml-2" />
-                  </button>
+                  </Button>
                 </form>
               </div>
             </div>
