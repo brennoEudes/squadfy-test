@@ -37,23 +37,23 @@ export default function Header() {
 
   return (
     <header>
-      <div className="container mx-auto flex items-center justify-between p-4">
+      <div className="container mx-auto flex items-center justify-between p-2">
         <div className="text-lg font-bold">LOREM IPSUM</div>
 
-        <button onClick={toggleMenu} className="md:hidden">
+        <button onClick={toggleMenu} className={`md:hidden ${menuOpen ? "fixed top-4 right-4 z-50" : "relative"}`}>
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <nav
-          className={`fixed top-0 left-0 w-full h-full bg-white text-secondary transform transition-transform duration-300 ease-in-out ${
-            menuOpen ? "translate-x-0" : "translate-x-full"
-          } md:relative md:flex md:items-center md:transform-none md:translate-x-0`}
+          className={`fixed top-0 left-0 w-full h-1/3 bg-white text-secondary transform transition-transform duration-300 ease-in-out ${
+            menuOpen ? "translate-y-0" : "-translate-y-full"
+          } md:relative md:flex md:items-center md:transform-none md:translate-y-0`}
         >
           {menuOpen && (
-            <ul className="flex flex-col items-center justify-center h-full space-y-8 md:flex-row md:space-y-0 md:space-x-6">
+            <ul className="flex flex-col items-center justify-center h-full space-y-4 md:flex-row md:space-y-0 md:space-x-6">
               {links.map((link: any) => (
                 <li key={link.url}>
-                  <a href={link.url} className="text-lg">
+                  <a href={link.url} >
                     {link.name}
                   </a>
                 </li>
