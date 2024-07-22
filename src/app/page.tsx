@@ -163,14 +163,18 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="section-2">
+        <section className="section-2 g-1">
           {section2Content.map((section, index) => (
             <div key={index}>
-              <h3>{section.overline}</h3>
-              <h2>{section.title}</h2>
-              <p>{section.description}</p>
-              <img src="/assets/icons/plus-icon.svg" alt="Black plus icon" />
-              <img src={section.imageUrl} alt={section.altText} />
+              <div className="p-4">
+                <h3>{section.overline}</h3>
+                <h2>{section.title}</h2>
+                <p>{section.description}</p>
+                <div className="flex justify-end items-end">
+                  <p className="text-secondary text-4xl font-bold">+</p>
+                </div>
+              </div>
+              <img className="mb-4" src={section.imageUrl} alt={section.altText} />
             </div>
           ))}
         </section>
