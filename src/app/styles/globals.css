@@ -19,5 +19,20 @@
   font-family: "Inter", sans-serif;
 }
 
+h1 {
+  @apply text-[60px] text-secondary leading-[60px] break-words;
+}
+
+h2 {
+  @apply text-4xl text-secondary leading-[56px];
+}
+
+h3 {
+  @apply text-xl text-quaternary leading-[20px] uppercase;
+}
+
+h4 {
+  @apply text-lg text-secondary leading-[20px];
+}
 
 

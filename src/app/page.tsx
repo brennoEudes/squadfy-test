@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { fetchPayloadData } from "../services/api";
 
+import Image from "next/image";
 import "./styles/globals.css";
 
 import Header from "@/components/Header";
@@ -10,7 +11,14 @@ import { ChevronRight } from "lucide-react";
 import Footer from "@/components/Footer";
 
 export default function Home() {
-  const [heroContent, setHeroContent] = useState<any>(null);
+  const [heroContent, setHeroContent] = useState({
+    overline: "",
+    title: "",
+    description: "",
+    imageUrl: "",
+    altText: "",
+  });
+
   const [section2Content, setSection2Content] = useState<any[]>([]);
   const [section3Content, setSection3Content] = useState<any[]>([]);
   const [error, setError] = useState<string | null>(null);
@@ -140,13 +148,19 @@ export default function Home() {
     <div>
       <Header />
       <main>
-        <section className="hero">
-          <img src={heroContent.imageUrl} alt={heroContent.altText} />
-          <div>
-            <h3>{heroContent.overline}</h3>
-            <h1>{heroContent.title}</h1>
-            <h4>{heroContent.description}</h4>
-            <img src="/assets/icons/plus-icon.svg" alt="Black plus icon" />
+        <section
+          className="hero bg-cover bg-center h-[608px]"
+          style={{ backgroundImage: `url(${heroContent.imageUrl})` }}
+        >
+          <div className="mt-[104px] pt-[70px] pl-[72px] pb-4">
+            <div className="bg-white p-4 gap-1">
+              <h3>{heroContent.overline}</h3>
+              <h1>{heroContent.title}</h1>
+              <h4>{heroContent.description}</h4>
+              <div className="flex justify-end items-end">
+                <p className="text-secondary text-4xl font-bold">+</p>
+              </div>
+            </div>
           </div>
         </section>
         <section className="section-2">
