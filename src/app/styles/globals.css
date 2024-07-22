@@ -28,7 +28,7 @@ h2 {
 }
 
 h3 {
-  @apply text-xl text-quaternary leading-[20px] uppercase;
+  @apply text-xl text-secondary font-bold leading-[20px];
 }
 
 h4 {
@@ -38,4 +38,9 @@ h4 {
 h5 {
   @apply text-lg text-secondary leading-[20px];
 }
+
+h6 {
+  @apply text-xl text-quaternary leading-[20px] uppercase;
+}
+
 

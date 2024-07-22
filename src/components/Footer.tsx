@@ -70,9 +70,9 @@ export default function Footer() {
   }
 
   return (
-    <footer className="p-4">
+    <footer className="px-4 pt-10">
       <div className="container mx-auto flex flex-col gap-8 pt-6">
-        <h2>LOREM IPSUM</h2>
+        <h3>LOREM IPSUM</h3>
         <div className="flex gap-6">
           <Image src={instagramIcon} alt="Instagram icon" />
           <Image src={facebookIcon} alt="Facebook icon" />

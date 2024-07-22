@@ -151,12 +151,12 @@ export default function Home() {
       <Header />
       <main>
         <section
-          className="hero bg-cover bg-center h-[608px]"
+          className="hero bg-cover bg-center"
           style={{ backgroundImage: `url(${heroContent.imageUrl})` }}
         >
           <div className="pt-[174px] pl-[72px] pb-4">
-            <div className="bg-white p-4 gap-1">
-              <h3>{heroContent.overline}</h3>
+            <div className="bg-white flex flex-col p-4 gap-2">
+              <h6>{heroContent.overline}</h6>
               <h1>{heroContent.title}</h1>
               <h5>{heroContent.description}</h5>
               <div className="flex justify-end items-end">
@@ -166,11 +166,11 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-2 g-1">
+        <section className="section-2 flex flex-col gap-2 pt-10">
           {section2Content.map((section, index) => (
             <div key={index}>
-              <div className="p-4">
-                <h3>{section.overline}</h3>
+              <div className="px-4 flex flex-col gap-2 pb-4">
+                <h6>{section.overline}</h6>
                 <h2>{section.title}</h2>
                 <p>{section.description}</p>
                 <div className="flex justify-end items-end">
@@ -178,7 +178,6 @@ export default function Home() {
                 </div>
               </div>
               <img
-                className="mb-[48px]"
                 src={section.imageUrl}
                 alt={section.altText}
               />
@@ -186,11 +185,11 @@ export default function Home() {
           ))}
         </section>
 
-        <section className="section-3 p-4">
+        <section className="section-3 flex flex-col gap-2 px-4 pt-10">
           {section3Content.map((section, index) => (
             <div className="space-y-4" key={index}>
-              <div>
-                <h3>{section.overline}</h3>
+              <div className="flex flex-col gap-2 pb-4">
+                <h6>{section.overline}</h6>
                 <h2>{section.title}</h2>
                 <p>{section.description}</p>
               </div>

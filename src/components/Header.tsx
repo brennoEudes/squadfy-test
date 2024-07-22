@@ -37,8 +37,9 @@ export default function Header() {
 
   return (
     <header>
-      <div className="container mx-auto flex items-center justify-between p-2 h-[72px]">
-        <div className="text-lg font-bold">LOREM IPSUM</div>
+      <div className="container mx-auto flex items-center justify-between p-4 h-[72px]">
+        <h3>LOREM IPSUM</h3>
+
 
         <button onClick={toggleMenu} className={`md:hidden ${menuOpen ? "fixed top-4 right-4 z-50" : "relative"}`}>
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
