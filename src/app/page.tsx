@@ -4,13 +4,15 @@ import { useState, useEffect } from "react";
 import { fetchPayloadData } from "../services/api";
 
 import "./styles/globals.css";
+
 import facebookWhiteIcon from "../../public/assets/icons/fb-white.svg";
 import googleIcon from "../../public/assets/icons/google.svg";
+import { ChevronRight } from "lucide-react";
 
 import Header from "@/components/Header";
-import { ChevronRight } from "lucide-react";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
+
 
 export default function Home() {
   const [heroContent, setHeroContent] = useState({
@@ -177,10 +179,7 @@ export default function Home() {
                   <p className="text-secondary text-4xl font-bold">+</p>
                 </div>
               </div>
-              <img
-                src={section.imageUrl}
-                alt={section.altText}
-              />
+              <img src={section.imageUrl} alt={section.altText} />
             </div>
           ))}
         </section>
@@ -225,12 +224,14 @@ export default function Home() {
                     )
                   )}
                 </div>
-                <div className="flex items-center justify-center my-2">
-                  <div className="flex-grow border-t border-dotted border-quaternary"></div>
+
+                <div className="flex items-center justify-center py-4">
+                  <div className="flex-grow border-t border-dotted border-quaternary "></div>
                   <span className="mx-4 text-gray-500">OU</span>
                   <div className="flex-grow border-t border-dotted border-quaternary"></div>
                 </div>
-                <form className="flex flex-col gap-4 bg-white w-full max-w-md">
+
+                <form className="flex flex-col gap-4 bg-white w-full">
                   <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 mb-2">
                       Seu e-mail:
