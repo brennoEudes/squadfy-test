@@ -154,7 +154,7 @@ export default function Home() {
           className="hero bg-cover bg-center h-[608px]"
           style={{ backgroundImage: `url(${heroContent.imageUrl})` }}
         >
-          <div className="mt-[104px] pt-[70px] pl-[72px] pb-4">
+          <div className="pt-[70px] pl-[72px] pb-4">
             <div className="bg-white p-4 gap-1">
               <h3>{heroContent.overline}</h3>
               <h1>{heroContent.title}</h1>
