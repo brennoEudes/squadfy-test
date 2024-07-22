@@ -230,10 +230,7 @@ export default function Home() {
                   <span className="mx-4 text-gray-500">OU</span>
                   <div className="flex-grow border-t border-dotted border-quaternary"></div>
                 </div>
-                <form
-                  onSubmit={handleSubmit}
-                  className="flex flex-col gap-4 bg-white w-full max-w-md"
-                >
+                <form className="flex flex-col gap-4 bg-white w-full max-w-md">
                   <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 mb-2">
                       Seu e-mail:
@@ -252,6 +249,7 @@ export default function Home() {
 
                   <Button
                     type="submit"
+                    onClick={handleSubmit}
                     className="py-3 flex items-center justify-center"
                   >
                     Próximo
