@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, SyntheticEvent, MouseEvent } from "react";
 import { fetchPayloadData } from "../services/api";
 
 import "./styles/globals.css";
@@ -31,7 +31,7 @@ export default function Home() {
   const [feedbackMessage, setFeedbackMessage] = useState("");
   const [isError, setIsError] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     if (!validateEmail(email)) {
       setFeedbackMessage("Por favor, insira um endereço de e-mail válido.");
@@ -42,6 +42,10 @@ export default function Home() {
       setEmail("");
       console.log("Formulário enviado com sucesso.");
     }
+  };
+
+  const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+    handleSubmit(e as SyntheticEvent);
   };
 
   const validateEmail = (email: string): boolean => {
@@ -303,7 +307,7 @@ export default function Home() {
                           <div className="flex-shrink-0 md:ml-4 mt-4 md:mt-0">
                             <Button
                               type="submit"
-                              onClick={handleSubmit}
+                              onClick={handleClick}
                               className="py-3 flex items-center justify-center w-full md:w-auto"
                             >
                               Próximo
