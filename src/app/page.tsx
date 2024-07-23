@@ -181,10 +181,10 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="section-2 flex flex-col gap-2 pt-10">
+        <section className="section-2 flex flex-col gap-2 pt-10 md:pt-20">
           {section2Content.map((section, index) => (
-            <div key={index}>
-              <div className="px-4 flex flex-col gap-2 pb-4">
+            <div key={index} className="md:flex md:justify-between md:gap-4">
+              <div className="px-4 flex flex-col gap-2 pb-4 md:px-20 md:justify-center md:flex-grow">
                 <h6>{section.overline}</h6>
                 <h2>{section.title}</h2>
                 <p>{section.description}</p>
@@ -192,7 +192,7 @@ export default function Home() {
                   <p className="text-secondary text-4xl font-bold">+</p>
                 </div>
               </div>
-              <img src={section.imageUrl} alt={section.altText} />
+              <img src={section.imageUrl} alt={section.altText} className="md:w-1/2 w-full h-auto object-cover" />
             </div>
           ))}
         </section>
