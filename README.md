@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Squadfy Frontend Developer Teste
 
-## Getting Started
+Este projeto é uma aplicação desenvolvida para o processo seletivo da **Squadfy**. A aplicação foi construída com base em boas práticas de desenvolvimento frontend, focando em escalabilidade, manutenibilidade e performance.
 
-First, run the development server:
+## Sobre a Squadfy
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+A Squadfy é uma empresa dedicada a fornecer soluções tecnológicas de ponta, ajudando negócios a se transformarem digitalmente. Para saber mais, visite o [site oficial](https://squadfy.com.br/).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Raciocínio do Desenvolvimento Web
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+O desenvolvimento da aplicação seguiu um fluxo de trabalho estruturado detalhado abaixo:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+1. **Configuração do Ambiente**: A primeira etapa foi garantir que o ambiente de desenvolvimento estivesse corretamente configurado. As ferramentas necessárias foram instaladas, incluindo **TypeScript**, **Next.js** e **Tailwind CSS**.
+2. **Desenvolvimento API-First**: Iniciamos o desenvolvimento seguindo o conceito de API-First. Consumimos os dados do payload através de uma API, o que torna a aplicação mais replicável e escalável, permitindo futuras expansões e integrações com outras APIs.
+3. **Estilização Mobile-First**: Com os dados sendo consumidos corretamente, a estilização foi iniciada utilizando o conceito Mobile-First. Isso garante uma melhor experiência para usuários de dispositivos móveis, adaptando-se posteriormente para telas maiores.
+4. **Deploy e Refinamento**: Após concluir o desenvolvimento de todas as versões responsivas, foi realizado o deploy. Após, foram realizadas algumas refatorações para melhorar a performance e a manutenibilidade do código.
 
-## Learn More
+## Setup
 
-To learn more about Next.js, take a look at the following resources:
+Para configurar e iniciar a aplicação localmente, siga os passos abaixo:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/brennoEudes/squadfy-test.git
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+2. Navegue até o diretório do projeto:
+   ```bash
+   cd squadfy-test
 
-## Deploy on Vercel
+3. Instale as dependências:
+    ```bash
+pnpm install
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+4. Inicie o servidor de desenvolvimento:
+    ```bash
+pnpm install
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+A aplicação estará disponível em http://localhost:3000.
+
+## Agradecimentos
+Gostaria de agradecer ao time da Squadfy pela oportunidade de participar deste processo seletivo. Foi uma experiência enriquecedora desenvolver esta aplicação.
