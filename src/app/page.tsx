@@ -39,7 +39,7 @@ export default function Home() {
     } else {
       setFeedbackMessage("E-mail enviado com sucesso!");
       setIsError(false);
-      setEmail('');
+      setEmail("");
       console.log("Formulário enviado com sucesso.");
     }
   };
@@ -268,42 +268,52 @@ export default function Home() {
                 </div>
 
                 <form
-                  className="flex flex-col gap-4 bg-white w-full"
+                  className="flex flex-col gap-4 mb-4 bg-white w-full"
                   onSubmit={handleSubmit}
                 >
-                  <div className="mb-4">
-                    <label htmlFor="email" className="block text-gray-700 mb-2">
-                      Seu e-mail:
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      className="border border-gray-300 p-3 w-full placeholder-quinary"
-                      placeholder="seu@email.com"
-                    />
-                    {feedbackMessage && (
-                      <p
-                        className={`text-sm ${
-                          isError ? "text-red-500" : "text-green-500"
-                        }`}
-                      >
-                        {feedbackMessage}
-                      </p>
-                    )}
+                  <div className="mb-4 md:flex md:items-center md:space-x-4 w-full">
+                    <div className="email-data-group flex flex-col md:flex-row md:items-center md:space-x-4 md:flex-grow">
+                      <div className="email-data md:flex md:flex-col md:w-full">
+                        <label
+                          htmlFor="email"
+                          className="block text-gray-700 mb-2"
+                        >
+                          Seu e-mail:
+                        </label>
+                        {feedbackMessage && (
+                          <p
+                            className={`text-sm ${
+                              isError ? "text-red-500" : "text-green-500"
+                            } md:ml-0`}
+                          >
+                            {feedbackMessage}
+                          </p>
+                        )}
+                        <div className="flex items-center w-full md:space-x-8">
+                          <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+                            className="border border-gray-300 p-3 w-full placeholder-quinary"
+                            placeholder="seu@email.com"
+                          />
+                          <div className="flex-shrink-0 md:ml-4 mt-4 md:mt-0">
+                            <Button
+                              type="submit"
+                              onClick={handleSubmit}
+                              className="py-3 flex items-center justify-center w-full md:w-auto"
+                            >
+                              Próximo
+                              <ChevronRight className="ml-2" />
+                            </Button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-
-                  <Button
-                    type="submit"
-                    onClick={handleSubmit}
-                    className="py-3 flex items-center justify-center"
-                  >
-                    Próximo
-                    <ChevronRight className="ml-2" />
-                  </Button>
                 </form>
               </div>
             </div>
