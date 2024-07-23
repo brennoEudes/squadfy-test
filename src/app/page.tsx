@@ -172,18 +172,13 @@ export default function Home() {
       <Header />
       <main>
         <section
-          className="hero bg-cover bg-center h-[80vh]"
+          className="hero bg-cover bg-center h-[70vh]"
           style={{ backgroundImage: `url(${heroContent.imageUrl})` }}
         >
-          <div className="relative w-full h-full">
+          <div className="w-full h-full relative p-10vh p-60vw">
             <div
-              className="absolute bg-white flex flex-col p-4 gap-2"
-              style={{
-                width: "calc(100% / 3)",
-                height: "auto",
-                right: "5%",
-                bottom: "5%",
-              }}
+              className=" bg-white flex flex-col p-4 gap-2 absolute bottom-0 right-0 m-4 max-w-90p max-h-90p"
+              
             >
               <h6 className="text-sm md:text-base lg:text-lg xl:text-xl">
                 {heroContent.overline}
