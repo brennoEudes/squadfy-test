@@ -13,7 +13,6 @@ import Header from "@/components/Header";
 import Button from "@/components/Button";
 import Footer from "@/components/Footer";
 
-
 export default function Home() {
   const [heroContent, setHeroContent] = useState({
     overline: "",
@@ -153,15 +152,29 @@ export default function Home() {
       <Header />
       <main>
         <section
-          className="hero bg-cover bg-center"
+          className="hero bg-cover bg-center h-[80vh]"
           style={{ backgroundImage: `url(${heroContent.imageUrl})` }}
         >
-          <div className="pt-[174px] pl-[72px] pb-4">
-            <div className="bg-white flex flex-col p-4 gap-2">
-              <h6>{heroContent.overline}</h6>
-              <h1>{heroContent.title}</h1>
-              <h5>{heroContent.description}</h5>
-              <div className="flex justify-end items-end">
+          <div className="relative w-full h-full">
+            <div
+              className="absolute bg-white flex flex-col p-4 gap-2"
+              style={{
+                width: "calc(100% / 3)",
+                height: "auto",
+                right: "5%",
+                bottom: "5%",
+              }}
+            >
+              <h6 className="text-sm md:text-base lg:text-lg xl:text-xl">
+                {heroContent.overline}
+              </h6>
+              <h1 className="text-2xl md:text-3xl lg:text-4xl xl:text-5xl">
+                {heroContent.title}
+              </h1>
+              <h5 className="text-base md:text-lg lg:text-xl xl:text-2xl">
+                {heroContent.description}
+              </h5>
+              <div className="flex justify-end items-end mt-auto">
                 <p className="text-secondary text-4xl font-bold">+</p>
               </div>
             </div>
