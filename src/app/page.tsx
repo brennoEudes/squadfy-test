@@ -204,7 +204,7 @@ export default function Home() {
         <section className="section-3 flex flex-col gap-2 px-4 pt-10 md:p-20 ">
           {section3Content.map((section, index) => (
             <div
-              className="space-y-4 md:flex md:space-y-0 md:gap-12"
+              className="space-y-4 md:flex md:space-y-0 md:gap-6 lg:gap-8"
               key={index}
             >
               <div className="flex flex-col gap-2 pb-4 md:pb-0 md:w-1/2 md:justify-center md:flex-frow">
