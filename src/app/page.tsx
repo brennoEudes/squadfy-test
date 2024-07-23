@@ -289,7 +289,7 @@ export default function Home() {
                             {feedbackMessage}
                           </p>
                         )}
-                        <div className="flex items-center w-full md:space-x-8">
+                        <div className="flex flex-col items-center w-full md:flex-row md:space-x-8">
                           <input
                             type="email"
                             id="email"
