@@ -33,7 +33,7 @@ Para configurar e iniciar a aplicação localmente, siga os passos abaixo:
 
 4. Inicie o servidor de desenvolvimento:
     ```bash
-    pnpm install
+    pnpm run dev
 
 A aplicação estará disponível em http://localhost:3000.
 
