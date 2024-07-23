@@ -192,23 +192,30 @@ export default function Home() {
                   <p className="text-secondary text-4xl font-bold">+</p>
                 </div>
               </div>
-              <img src={section.imageUrl} alt={section.altText} className="md:w-1/2 w-full h-auto object-cover" />
+              <img
+                src={section.imageUrl}
+                alt={section.altText}
+                className="md:w-1/2 w-full h-auto object-cover"
+              />
             </div>
           ))}
         </section>
 
-        <section className="section-3 flex flex-col gap-2 px-4 pt-10">
+        <section className="section-3 flex flex-col gap-2 px-4 pt-10 md:p-20 ">
           {section3Content.map((section, index) => (
-            <div className="space-y-4" key={index}>
-              <div className="flex flex-col gap-2 pb-4">
+            <div
+              className="space-y-4 md:flex md:space-y-0 md:gap-12"
+              key={index}
+            >
+              <div className="flex flex-col gap-2 pb-4 md:pb-0 md:w-1/2 md:justify-center md:flex-frow">
                 <h6>{section.overline}</h6>
                 <h2>{section.title}</h2>
                 <p>{section.description}</p>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-4 md:w-1/2">
                 <p>Cadastre-se com a sua rede social:</p>
-                <div className="social-buttons flex flex-col gap-4">
+                <div className="social-buttons flex flex-col gap-4 md:flex-row">
                   {section.socialLoginOptions.map(
                     (option: string, i: number) => (
                       <Button
@@ -221,7 +228,7 @@ export default function Home() {
                         }
                         className={`flex items-center justify-center hover:opacity-75 ${
                           option === "Google" ? " border border-quaternary" : ""
-                        }`}
+                        } w-full md:flex-1`}
                         onClick={() => console.log(`Clicked on ${option}`)}
                         icon={
                           option === "Facebook"
