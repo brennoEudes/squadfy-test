@@ -33,6 +33,21 @@ export default function Header() {
     };
 
     loadData();
+
+    const handleResize = () => {
+      if (window.innerWidth >= 768) {
+        setMenuOpen(true);
+      } else {
+        setMenuOpen(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   return (
@@ -40,23 +55,29 @@ export default function Header() {
       <div className="container mx-auto flex items-center justify-between p-4 h-[72px]">
         <h3>LOREM IPSUM</h3>
 
-
-        <button onClick={toggleMenu} className={`md:hidden ${menuOpen ? "fixed top-4 right-4 z-50" : "relative"}`}>
+        <button
+          onClick={toggleMenu}
+          className={`md:hidden ${
+            menuOpen ? "fixed top-4 right-4 z-50" : "relative"
+          }`}
+        >
           {menuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
 
         <nav
           className={`fixed top-0 left-0 w-full h-1/3 bg-white text-secondary transform transition-transform duration-300 ease-in-out ${
             menuOpen ? "translate-y-0" : "-translate-y-full"
-          } md:relative md:flex md:items-center md:transform-none md:translate-y-0`}
+          } md:relative md:flex md:items-center md:transform-none md:translate-y-0 md:w-auto md:h-auto`}
         >
           {menuOpen && (
-            <ul className="flex flex-col items-center justify-center h-full space-y-4 md:flex-row md:space-y-0 md:space-x-6">
+            <ul
+              className={`flex flex-col items-center justify-center h-full space-y-4 md:flex-row md:space-y-0 md:space-x-6 ${
+                menuOpen ? "" : "hidden md:flex"
+              }`}
+            >
               {links.map((link: any) => (
                 <li key={link.url}>
-                  <a href={link.url} >
-                    {link.name}
-                  </a>
+                  <a href={link.url}>{link.name}</a>
                 </li>
               ))}
             </ul>
