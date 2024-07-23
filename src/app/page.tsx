@@ -24,13 +24,29 @@ export default function Home() {
 
   const [section2Content, setSection2Content] = useState<any[]>([]);
   const [section3Content, setSection3Content] = useState<any[]>([]);
+
   const [error, setError] = useState<string | null>(null);
 
   const [email, setEmail] = useState("");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    alert(`Email enviado: ${email}`);
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (!validateEmail(email)) {
+      setFeedbackMessage("Por favor, insira um endereço de e-mail válido.");
+      setIsError(true);
+    } else {
+      setFeedbackMessage("E-mail enviado com sucesso!");
+      setIsError(false);
+      setEmail('');
+      console.log("Formulário enviado com sucesso.");
+    }
+  };
+
+  const validateEmail = (email: string): boolean => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(String(email).toLowerCase());
   };
 
   useEffect(() => {
@@ -251,7 +267,10 @@ export default function Home() {
                   <div className="flex-grow border-t border-dotted border-quaternary"></div>
                 </div>
 
-                <form className="flex flex-col gap-4 bg-white w-full">
+                <form
+                  className="flex flex-col gap-4 bg-white w-full"
+                  onSubmit={handleSubmit}
+                >
                   <div className="mb-4">
                     <label htmlFor="email" className="block text-gray-700 mb-2">
                       Seu e-mail:
@@ -266,6 +285,15 @@ export default function Home() {
                       className="border border-gray-300 p-3 w-full placeholder-quinary"
                       placeholder="seu@email.com"
                     />
+                    {feedbackMessage && (
+                      <p
+                        className={`text-sm ${
+                          isError ? "text-red-500" : "text-green-500"
+                        }`}
+                      >
+                        {feedbackMessage}
+                      </p>
+                    )}
                   </div>
 
                   <Button
