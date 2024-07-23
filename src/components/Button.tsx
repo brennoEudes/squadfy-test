@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode, MouseEvent } from "react";
 import Image from "next/image";
 
 export default function Button({
@@ -10,6 +10,15 @@ export default function Button({
   icon = null,
   iconAlt = "",
   ...props
+}: {
+  onClick: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
+  children: ReactNode;
+  className?: string;
+  textColor?: string;
+  bgColor?: string;
+  icon?: string | null;
+  iconAlt?: string;
+  [key: string]: any;
 }) {
   return (
     <button
