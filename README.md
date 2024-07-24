@@ -8,7 +8,7 @@ Este projeto é uma aplicação desenvolvida para o processo seletivo da **Squad
 
 ## 🏢 Sobre a Squadfy
 
-A Squadfy oferece as mais avançadas soluções tecnológicas com times multidisciplinares de alta performance. Tudo para ajudar o seu negócio a se transformar digitalmente e escalar seus resultados! Saiba mais em [site oficial](https://squadfy.com.br/).
+A Squadfy oferece as mais avançadas soluções tecnológicas com times multidisciplinares de alta performance. Tudo para ajudar o seu negócio a se transformar digitalmente e escalar seus resultados! Saiba mais em [Squadfy.com.br](https://squadfy.com.br/).
 
 ## 💡 Raciocínio do Desenvolvimento Web
 
