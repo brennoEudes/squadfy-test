@@ -89,6 +89,8 @@ A aplicação estará disponível em http://localhost:3000.
 
 - React Icons;
 
+## Deploy
+- https://squadfy.netlify.app/
 
 ## 🤝 Agradecimentos
 Agradeço ao time da Squadfy pela oportunidade de me juntar ao time e fazer a diferença!
