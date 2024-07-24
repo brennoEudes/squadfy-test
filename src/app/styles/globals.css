@@ -19,6 +19,14 @@
   font-family: "Inter", sans-serif;
 }
 
+.opacity-visible {
+  opacity: 1 !important;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
 h1 {
   @apply text-[60px] text-secondary leading-[60px] break-words;
 }
