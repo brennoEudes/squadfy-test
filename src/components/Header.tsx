@@ -78,7 +78,7 @@ export default function Header() {
 
         <nav
           className={`fixed top-0 left-0 w-full lg:w-full h-1/3 bg-white text-secondary transform transition-transform duration-300 ease-in-out ${
-            menuOpen ? "translate-y-0" : "-translate-y-full"
+            menuOpen ? "translate-y-0 z-40" : "-translate-y-full"
           } md:relative md:flex md:items-center md:transform-none md:translate-y-0 lg:mx-auto`}
         >
           {menuOpen && (
